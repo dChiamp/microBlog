@@ -1,0 +1,53 @@
+body {
+	font-family: courier;
+	color: #00FF3C;
+	font-size: 24px;
+	background: lightgrey;
+	width: 500px;
+  	display: block;
+  	
+  	margin-left: auto;
+  	margin-right: auto;
+  	
+  	text-align: center;
+  	background-image: url("img/space.jpg");
+}
+
+input{
+	font-size: 24px;
+	width: 250px;
+	height: 50px;
+
+}
+
+li {
+	 list-style-type: none;
+}
+
+ul {
+	text-align: center;
+	padding: 10px;
+	margin: 10px;
+ 	border: 1px solid white;
+	border-radius: 5px;
+
+}
+
+
+#form-submit-button{
+	border-radius:6px;
+	border:1px solid;
+	display:inline-block;
+	cursor:pointer;
+	background-color: lightgreen;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+}
+.form-submit-button:hover {
+	background-color:#77a809;
+}
+.form-submit-button:active {
+	color: green;
+}
