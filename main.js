@@ -1,4 +1,6 @@
-window.onload = function() {
+
+$(document).ready(function() {
+    // console.log( "ready!" );
 
 var form = document.getElementById('enter-post');
 
@@ -8,6 +10,7 @@ var formBtn = document.getElementById('form-submit-button');
 var totalPostsNum = document.getElementById("posts-num");
 
 var postsArray = []
+var postsIdArray = ["post-1"]; 
 
 function createNewPost () {
 	for (var i = 0; i < postsArray.length; i++) {
@@ -18,6 +21,8 @@ function createNewPost () {
 	var t = document.createTextNode(postsArray[lastPostArrayIndex]);
 	// create numbered posts for bonus reasons
 	newPost.id = "post-" + (lastPostArrayIndex + 2);
+	var postIdToArray = newPost.id;
+	postsIdArray.push(postIdToArray);
 	console.log(t);
 	newPost.appendChild(t);
 	postsList.appendChild(newPost);
@@ -33,20 +38,29 @@ function countTotalPosts () {
 	totalPostsNum.textContent = "Total Posts: " + (postsArray.length + 1);
 }
 
-
 // post function
 formBtn.addEventListener("click", function (e) {
 	e.preventDefault();
+	if(form.value) {
+		addPostsToArray();
+		createNewPost();
+		countTotalPosts();
+		addToLocalStorage();
 
-	addPostsToArray();
-	createNewPost();
-	countTotalPosts();
+		console.log(postsIdArray);
 
-	// addComment();
+		// addComment();
+	}
 })
 
+function addToLocalStorage () {
+	for (var i = 0; i < postsArray.length; i++) {
+			localStorage.setItem(postsIdArray[i], postsArray[i]);
+	};
 }
 
+
+});
 /* BONUS FAIL
 
 //fn to get li id
